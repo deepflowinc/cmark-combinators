@@ -23,6 +23,7 @@ module CMark.Utils (
   ol,
   htmlBlock,
   details,
+  blockQuote,
 
   -- * Re-exports
   module CMark,
@@ -157,3 +158,6 @@ ol =
             }
       )
     . map (Node Nothing ITEM . pure . coerce)
+
+blockQuote :: [Block] -> Block
+blockQuote = Block . Node Nothing BLOCK_QUOTE . coerce
